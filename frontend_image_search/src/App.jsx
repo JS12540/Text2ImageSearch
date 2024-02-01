@@ -6,16 +6,33 @@ import Header from './components/Header';
 
 const API_URL = "http://127.0.0.1:8000";
 
+/**
+ * A React component for the App.
+ *
+ * @return {JSX.Element} The JSX for the App component
+ */
 function App() {
   const [list, setList] = useState([]);
   const [textInput, setTextInput] = useState("");
 
+  /**
+   * A function to handle key down events.
+   *
+   * @param {Event} e - the key down event
+   * @return {void} 
+   */
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       search(textInput);
     }
   }
 
+  /**
+   * A function to perform a search using the provided query.
+   *
+   * @param {string} query - The search query to be used
+   * @return {void} No return value
+   */
   const search = (query) => {
     try {
       fetch(API_URL + '?query=' + query)
