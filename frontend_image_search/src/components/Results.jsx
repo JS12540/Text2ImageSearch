@@ -2,6 +2,12 @@ import { IoIosThumbsUp, IoIosThumbsDown } from 'react-icons/io';
 
 const API_URL = "http://127.0.0.1:8000";
 
+/**
+ * Renders a row of documents as a flexbox row.
+ *
+ * @param {Object} documents - The array of documents to be rendered
+ * @return {JSX} The JSX element representing the row of documents
+ */
 function Row({ documents }) {
   return (
     <div style={{
@@ -31,6 +37,12 @@ function Row({ documents }) {
   );
 }
 
+/**
+ * Renders a list of documents in rows of three.
+ *
+ * @param {Array} list - The list of documents to be rendered
+ * @return {JSX.Element} The JSX element representing the rendered list of documents
+ */
 function Results({ list }) {
   return (
     <div>
