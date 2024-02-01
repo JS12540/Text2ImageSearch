@@ -3,7 +3,7 @@
 ### 1. Installation
 In a location where you want to place this repo, use the following commands:
 
-    git clone git@github.com:bauerem/semantic-text2image-search.git
+    git clone https://github.com/JS12540/Text2ImageSearch.git
 
 ## Backend Setup:
 
