@@ -5,6 +5,15 @@ import os
 import shutil
 
 def search(keywords):
+    """
+    Function to perform a search using DuckDuckGo's API.
+
+    Args:
+    - keywords: A string containing the search keywords.
+
+    Returns:
+    - A list of search results in JSON format.
+    """
     url = 'https://duckduckgo.com/'
     params = {'q': keywords}
 
@@ -44,6 +53,16 @@ def search(keywords):
     return data["results"]
 
 def save_image(image_object: dict, save_directory: str) -> None:
+    """
+    Save an image from the given image object to the specified directory.
+
+    Args:
+        image_object (dict): The dictionary containing the image information.
+        save_directory (str): The directory where the image will be saved.
+
+    Returns:
+        None
+    """
     url = image_object["image"]
     filename = os.path.join(save_directory, url.split("/")[-1])
 

@@ -43,9 +43,6 @@ for i, image_file in enumerate(image_files):
     points.append(PointStruct(id=point_id,payload={"uri": str(image_file), "document" : [str(image_file)]},vector=embedding, ))
 
     print("Points added")
-
-
-
     # client.upsert(
     #     embeddings=embedding,
     #     metadatas=[{"uri": str(image_file)}],

@@ -34,6 +34,15 @@ app.mount("/images", StaticFiles(directory="images/"), name="images")
 
 @app.get("/")
 async def root(query: str | None = None):
+    """
+    Retrieves search results based on a given query string.
+
+    Parameters:
+        query (str | None): The query string to search for. Defaults to None.
+
+    Returns:
+        dict: A dictionary containing the search results. If a query is provided, the dictionary will have a "result" key with the search results. If no query is provided, an empty dictionary is returned.
+    """
     if query:
         query_embedding = lang_embedder([query])
 
@@ -57,6 +66,9 @@ async def root(query: str | None = None):
 
 
 def test():
+    """
+    This function initializes a chroma client, retrieves a collection, and prints the first 5 items from the collection.
+    """
     chroma_client = chromadb.PersistentClient(path="./data")
     collection = chroma_client.get_collection("image_collection")
     print("First 5 items from collection:")
