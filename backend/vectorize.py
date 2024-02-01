@@ -6,9 +6,6 @@ from qdrant_client.http import models
 import uuid
 from qdrant_client.http.models import PointStruct
 
-# https://docs.trychroma.com/getting-started
-
-# chroma_client = chromadb.PersistentClient(path="./data") #(host='localhost', port=50051)
 
 client = QdrantClient(
     url="https://f9d44fbb-cb67-4370-b88b-586479eecd68.us-east4-0.gcp.cloud.qdrant.io:6333", 
@@ -23,7 +20,6 @@ image_files = [file for file in image_files if file.suffix in {'.jpeg', '.jpg', 
 # Embedder
 embedder = ImageEmbedder()
 
-# collection = chroma_client.get_or_create_collection(name="image_collection") # (dimension=512, metric='Cosine')
 collection = client.recreate_collection( collection_name="image-collection",
     vectors_config=models.VectorParams(size=512 , distance=models.Distance.COSINE))
 
@@ -43,12 +39,6 @@ for i, image_file in enumerate(image_files):
     points.append(PointStruct(id=point_id,payload={"uri": str(image_file), "document" : [str(image_file)]},vector=embedding, ))
 
     print("Points added")
-    # client.upsert(
-    #     embeddings=embedding,
-    #     metadatas=[{"uri": str(image_file)}],
-    #     documents=[str(image_file)],
-    #     ids=[f"{i}"],
-    # )
 
 print(points[0])
 
@@ -58,5 +48,3 @@ client.upsert(
     wait=True,
     points=points
 )
-
-# print(collection.count())
