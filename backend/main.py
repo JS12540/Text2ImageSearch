@@ -9,7 +9,7 @@ lang_embedder = LanguageEmbedder()
 
 client = QdrantClient(
     url="https://f9d44fbb-cb67-4370-b88b-586479eecd68.us-east4-0.gcp.cloud.qdrant.io:6333", 
-    api_key="G0pElefNG9sKURZMmQ9-gHUw_TXna9cP69WoX_aaQbiGYSnXBrR2lA",
+    api_key="gHUw_TXna9cP69WoX_aaQbiGYSnXBrR2lA", # Key changed for safety purposes
 )
 
 client.get_collection("image-collection")
